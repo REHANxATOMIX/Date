@@ -120,12 +120,11 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
             text-shadow: 0 0 20px rgba(255, 107, 129, 0.7);
-            margin-top: 20px;
             position: absolute;
-            top: 50%;
+            top: -40px; /* Positioned above the white box */
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
+            transform: translateX(-50%);
+            white-space: nowrap;
         }
 
         .funny-message.visible {
@@ -180,10 +179,11 @@
             <button id="yesBtn" class="button yes-button">Yes</button>
             <button id="noBtn" class="button no-button">No</button>
         </div>
+        <!-- The funny message appears above the container -->
+        <div class="funny-message" id="funnyMessage">Oops! You can't say No 😆</div>
     </div>
 
     <div class="thank-you-message" id="thankYouMessage">Thank You! You Make My Heart Glow 💖</div>
-    <div class="funny-message" id="funnyMessage">Oops! You can't say No 😆</div>
 
     <script>
         const noBtn = document.getElementById("noBtn");
