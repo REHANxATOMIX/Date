@@ -114,6 +114,24 @@
             opacity: 1;
         }
 
+        .funny-message {
+            font-size: 1.5rem;
+            color: #ff6b81;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            text-shadow: 0 0 20px rgba(255, 107, 129, 0.7);
+            margin-top: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        .funny-message.visible {
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -165,12 +183,14 @@
     </div>
 
     <div class="thank-you-message" id="thankYouMessage">Thank You! You Make My Heart Glow 💖</div>
+    <div class="funny-message" id="funnyMessage">Oops! You can't say No 😆</div>
 
     <script>
         const noBtn = document.getElementById("noBtn");
         const yesBtn = document.getElementById("yesBtn");
         const container = document.getElementById("container");
         const thankYouMessage = document.getElementById("thankYouMessage");
+        const funnyMessage = document.getElementById("funnyMessage");
 
         noBtn.addEventListener("mouseover", () => {
             const maxX = window.innerWidth - noBtn.offsetWidth;
@@ -181,6 +201,13 @@
             noBtn.style.position = "fixed";
             noBtn.style.left = `${randomX}px`;
             noBtn.style.top = `${randomY}px`;
+        });
+
+        noBtn.addEventListener("click", () => {
+            funnyMessage.classList.add("visible");
+            setTimeout(() => {
+                funnyMessage.classList.remove("visible");
+            }, 2000);
         });
 
         function createFloatingHeart() {
